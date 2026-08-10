@@ -1,21 +1,22 @@
-# Xournal++ configuration architecture
+# Xournal++ declarative configuration
 
-The official Xournal++ documentation identifies the Linux configuration directory as `~/.config/xournalpp`, controlled by `XDG_CONFIG_HOME`. The directory contains `settings.xml` and a `palettes` subdirectory. The shared resources directory contains the built-in LaTeX templates, while a custom template can be selected from the LaTeX preferences.
+This repository is a versioned source of Xournal++ user configuration. It is not installed manually. The `nix-conf` flake consumes this repository as the `xournal-conf` non-flake input and Home Manager injects the files into `/home/livara/.config/xournalpp`.
 
-The repository therefore owns the user-level files that Xournal++ actually reads:
+The declarative mapping is:
 
-- `xournalpp/settings.xml` becomes `~/.config/xournalpp/settings.xml`.
-- `xournalpp/toolbar.ini` becomes `~/.config/xournalpp/toolbar.ini`.
-- `xournalpp/default_template.tex` becomes `~/.config/xournalpp/default_template.tex`.
-- `xournalpp/palettes/tokyo-night.gpl` becomes `~/.config/xournalpp/palettes/tokyo-night.gpl`.
+| Repository asset | Home Manager destination |
+| --- | --- |
+| `xournalpp/settings.xml` | `~/.config/xournalpp/settings.xml` |
+| `xournalpp/toolbar.ini` | `~/.config/xournalpp/toolbar.ini` |
+| `xournalpp/default_template.tex` | `~/.config/xournalpp/default_template.tex` |
+| `xournalpp/palettes/tokyo-night.gpl` | `~/.config/xournalpp/palettes/tokyo-night.gpl` |
 
-The settings file explicitly selects the custom toolbar, the user-owned LaTeX template, and the Tokyo Night palette. No Matugen or Nix-store path is required by this repository.
+`settings.xml` selects the `Xournal++ Copy` toolbar, the `useSystem` application theme, the repository-owned LaTeX template, and the Tokyo Night palette. The LaTeX template preserves Xournal++'s `%%XPP_TEXT_COLOR%%` and `%%XPP_TOOL_INPUT%%` placeholders. The palette is a static Tokyo Night palette with 11 bright colors chosen for legibility on a pure-black journal background.
 
-The attached LaTeX template uses the Xournal++ placeholders `%%XPP_TEXT_COLOR%%` and `%%XPP_TOOL_INPUT%%`, which are preserved. It uses `scontents`, `standalone`, `amsmath`, `amssymb`, `ifthen`, and `xcolor`.
+The target repository has no install script and no Matugen dependency. Dynamic DMS theme generation remains separate from this repository; the Xournal++ configuration itself is reproducibly injected by the Nix flake and Home Manager.
 
-References:
+## References
 
-1. https://xournalpp.github.io/guide/file-locations/ — Xournal++ file locations.
-2. https://xournalpp.github.io/guide/tools/latex/ — LaTeX setup, placeholders, and custom template behavior.
-3. https://xournalpp.github.io/guide/config/toolbar-colors/ — toolbar palette and GPL format.
-4. https://xournalpp.github.io/guide/config/preferences/ — Xournal++ preference behavior.
+1. [Xournal++ file locations](https://xournalpp.github.io/guide/file-locations/)
+2. [Xournal++ LaTeX tool](https://xournalpp.github.io/guide/tools/latex/)
+3. [Xournal++ toolbar colors and GPL palettes](https://xournalpp.github.io/guide/config/toolbar-colors/)
