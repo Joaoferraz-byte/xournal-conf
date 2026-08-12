@@ -1,19 +1,19 @@
-# Xournal++ declarative configuration
+# Xournal++ configuration architecture
 
-This repository is a versioned source of Xournal++ user configuration. It is not installed manually. The `nix-conf` flake consumes this repository as the `xournal-conf` non-flake input and Home Manager injects the files into the active user's `~/.config/xournalpp` profile.
+`xournal-conf` is a versioned application-data repository. It is not a NixOS module and does not own the desktop theme or the Home Manager lifecycle. `nix-conf` consumes its files and adapts them to the user profile.
 
-The declarative mapping is:
-
-| Repository asset | Home Manager destination |
+| File | Responsibility |
 | --- | --- |
-| `xournalpp/settings.xml` | `~/.config/xournalpp/settings.xml` |
-| `xournalpp/toolbar.ini` | `~/.config/xournalpp/toolbar.ini` |
-| `xournalpp/default_template.tex` | `~/.config/xournalpp/default_template.tex` |
-| `xournalpp/palettes/tokyo-night.gpl` | `~/.config/xournalpp/palettes/tokyo-night.gpl` |
+| `xournalpp/settings.xml` | Xournal++ preferences, page defaults, dark mode, tool behavior and paths |
+| `xournalpp/toolbar.ini` | Custom toolbar layout and tool ordering |
+| `xournalpp/palettes/tokyo-night.gpl` | Semantic drawing-color palette |
+| `xournalpp/default_template.tex` | Versioned LaTeX template |
 
-`settings.xml` selects the `Xournal++ Copy` toolbar, the `useSystem` application theme, the repository-owned LaTeX template, and the Tokyo Night palette. The LaTeX template preserves Xournal++'s `%%XPP_TEXT_COLOR%%` and `%%XPP_TOOL_INPUT%%` placeholders. The palette is a static Tokyo Night palette with 11 bright colors chosen for legibility on a pure-black journal background.
+The live configuration uses three distinct locations. The repository is the reviewed source at `~/Projects/xournal-conf/xournalpp`. Home Manager seeds writable copies under `~/.config/nixos/xournalpp`. The native Xournal++ path `~/.config/xournalpp` contains out-of-store links to those writable copies. `~/.config/com.github.xournalpp.xournalpp` is not part of this contract and should not be edited as a competing profile.
 
-The target repository has no install script and no Matugen dependency. Dynamic DMS theme generation remains separate from this repository; the Xournal++ configuration itself is reproducibly injected by the Nix flake and Home Manager.
+DMS/Matugen remains the owner of the desktop GTK appearance. Xournal++ remains the owner of page, tool and palette semantics. The repository therefore does not generate a second dynamic CSS theme for Xournal++; it consumes the system GTK theme and keeps its application behavior reproducible.
+
+Use `nix-conf/scripts/sync-xournalpp-config.sh --push /path/to/xournal-conf` after editing in the UI. Review the diff and publish it from the `xournal-conf` checkout. Use `--pull` to copy a reviewed repository change into the writable staging directory, then restart Xournal++.
 
 ## References
 
