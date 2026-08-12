@@ -1,6 +1,6 @@
 # Xournal++ declarative configuration
 
-This repository is a versioned source of Xournal++ user configuration. It is not installed manually. The `nix-conf` flake consumes this repository as the `xournal-conf` non-flake input and Home Manager injects the files into `/home/livara/.config/xournalpp`.
+This repository is a versioned source of Xournal++ user configuration. It is not installed manually. The `nix-conf` flake consumes this repository as the `xournal-conf` non-flake input and Home Manager injects the files into the active user's `~/.config/xournalpp` profile.
 
 The declarative mapping is:
 
