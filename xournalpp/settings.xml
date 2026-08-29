@@ -136,7 +136,7 @@
   <property name="stabilizerMass" value="5"/>
   <property name="stabilizerCuspDetection" value="true"/>
   <property name="stabilizerFinalizeStroke" value="true"/>
-  <property name="colorPalette" value="/home/livara/.config/xournalpp/palettes/tokyo-night.gpl"/>
+  <property name="colorPalette" value="/home/livara/.config/xournalpp/palettes/livara.gpl"/>
   <property name="latexSettings.autoCheckDependencies" value="true"/>
   <property name="latexSettings.defaultText" value="x^2"/>
   <property name="latexSettings.globalTemplatePath" value="/home/livara/.config/xournalpp/default_template.tex"/>
