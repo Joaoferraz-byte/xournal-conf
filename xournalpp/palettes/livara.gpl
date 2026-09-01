@@ -1,16 +1,17 @@
 GIMP Palette
-Name: Livara High Contrast
+Name: Tokyo Night Night
 Columns: 4
-# Fallback drawing colors for a black Xournal++ page.
-# Surface roles such as crust and mantle are deliberately excluded.
-245 245 245 Text
-184 200 255 Primary
-200 210 255 Primary Container
-159 231 212 Secondary
-255 213 128 Tertiary
-255 107 129 Error
-159 231 165 Success
-138 180 255 Link
-118 228 208 Teal
-255 184 107 Accent
-217 168 255 Emphasis
+#
+192 202 245 Foreground
+169 177 214 Muted
+122 162 247 Blue
+187 154 247 Purple
+42 195 222 Cyan
+125 207 255 Light Blue
+158 206 106 Green
+224 175 104 Yellow
+247 118 142 Red
+255 158 100 Orange
+115 218 202 Teal
+219 75 75 Dark Red
+86 95 137 Comment
