@@ -90,8 +90,8 @@
   <property name="recolor.sidebar" value="false"/>
   <property name="recolor.dark" value="4281349190"/>
   <property name="recolor.light" value="4291219701"/>
-  <property name="selectionBorderColor" value="4280557361"/>
-  <property name="backgroundColor" value="4278190080"/>
+  <property name="selectionBorderColor" value="4286227191"/>
+  <property name="backgroundColor" value="4279900966"/>
   <property name="selectionMarkerColor" value="4285702095"/>
   <property name="activeSelectionColor" value="4284653802"/>
   <property name="touchZoomStartThreshold" value="0"/>
