@@ -102,7 +102,7 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=graph&#10;backgroundColor=#000000&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=graph&#10;backgroundTypeConfig=f1=#596575,af1=#596575&#10;backgroundColor=#111318&#10;"/>
   <property name="sizeUnit" value=""/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>
@@ -136,7 +136,7 @@
   <property name="stabilizerMass" value="5"/>
   <property name="stabilizerCuspDetection" value="true"/>
   <property name="stabilizerFinalizeStroke" value="true"/>
-  <property name="colorPalette" value="/home/livara/.config/xournalpp/palettes/livara.gpl"/>
+  <property name="colorPalette" value="/home/livara/.config/xournalpp/palettes/tokyonight.gpl"/>
   <property name="latexSettings.autoCheckDependencies" value="true"/>
   <property name="latexSettings.defaultText" value="x^2"/>
   <property name="latexSettings.globalTemplatePath" value="/home/livara/.config/xournalpp/default_template.tex"/>
